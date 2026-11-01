@@ -67,7 +67,7 @@
 ```yaml
 plugin:
   name: AlwaysSit
-  version: 1.0.0
+  version: 1.0.1
   platforms: "PaperMC / Purpur / Spigot (1.16.5 — 26.3+)"
   runtimes: "Java 11, 17, 21+"
   core_feature: "Continuous automatic mounting on the furthest projectile"
@@ -241,11 +241,11 @@ mvn clean package
 ```
 Готовый артефакт компилируется в директорию:
 ```text
-target/AlwaysSit-1.0.0.jar
+target/AlwaysSit-1.0.1.jar
 ```
 
 ### 🚀 Установка
-1. Скопируйте `AlwaysSit-1.0.0.jar` в папку `plugins/` вашего сервера.
+1. Скопируйте `AlwaysSit-1.0.1.jar` в папку `plugins/` вашего сервера.
 2. Перезапустите сервер или используйте менеджер плагинов.
 3. Настройте `config.yml` под ваши задачи.
 
