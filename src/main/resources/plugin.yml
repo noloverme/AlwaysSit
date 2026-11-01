@@ -1,0 +1,17 @@
+name: AlwaysSit
+version: 1.0.0
+main: me.nolover.alwayssit.AlwaysSit
+api-version: 1.16
+description: Automatically seats players on the furthest projectile they launch
+authors: [nolover]
+commands:
+  asit:
+    description: Control automatic sitting on launched flying entities
+    usage: /asit <player> [entity]
+    permission: alwayssit.use
+    aliases: [alwayssit]
+
+permissions:
+  alwayssit.use:
+    description: Allows using the /asit command
+    default: op

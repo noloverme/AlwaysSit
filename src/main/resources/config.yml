@@ -1,0 +1,26 @@
+# AlwaysSit Configuration
+# Paper 1.16.5
+
+settings:
+  # Check interval in ticks (1 tick = 50ms, 1 = every tick for smoothest riding)
+  tick-interval: 1
+  # Cancel self-damage when riding own projectile
+  prevent-self-damage: true
+  # Reset fall distance while riding and upon dismount to prevent lethal fall damage
+  prevent-fall-damage: true
+
+messages:
+  prefix: "&8[&6AlwaysSit&8] "
+  no-permission: "&cУ вас нет прав на использование этой команды!"
+  player-not-found: "&cИгрок &e{player} &cне найден или не в сети!"
+  usage:
+    - "&6==== AlwaysSit Помощь ===="
+    - "&e/asit <ник> <сущность> &7- включить посадку на самую дальнюю запущенную сущность"
+    - "&e/asit <ник> &7- удалить игрока из списка AlwaysSit"
+  enabled: "&aРежим AlwaysSit &2включен &aдля игрока &e{player}&a. Сущность: &b{entity}&a."
+  updated: "&aТип сущности для игрока &e{player} &aизменен на &b{entity}&a."
+  disabled: "&cИгрок &e{player} &cудален из списка AlwaysSit и больше не садится на сущности."
+  not-in-list: "&eИгрок &f{player} &eне находится в списке AlwaysSit."
+  target-notified-enabled: "&aДля вас &2включен &aрежим AlwaysSit на сущность: &b{entity}&a."
+  target-notified-disabled: "&cДля вас &4отключен &cрежим AlwaysSit."
+  invalid-entity: "&cСущность &e{entity} &cне найдена или не поддерживается. Используйте подсказки Tab."

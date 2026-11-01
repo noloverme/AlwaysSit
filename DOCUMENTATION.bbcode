@@ -1,0 +1,134 @@
+[I][B]Примечание:[/B] Весь данный проект (плагин, программный код и документация) полностью создан с помощью искусственного интеллекта (ИИ).[/I]
+[HR][/HR]
+
+[SIZE=6][B]AlwaysSit — Документация плагина[/B][/SIZE]
+[B]Версия плагина:[/B] [ICODE]1.0.0[/ICODE]
+[B]Совместимость:[/B] Paper, Purpur, Spigot (Minecraft 1.16.5 — 1.21.x и новее)
+[B]Версии Java:[/B] Java 11, 17, 21+
+
+[HR][/HR]
+
+[SIZE=5][B]1. Описание плагина[/B][/SIZE]
+[B]AlwaysSit[/B] — плагин для серверов Minecraft, который автоматически и непрерывно сажает игрока на самую дальнюю запущенную им сущность (стрелу, эндер-жемчуг, снежок, трезубец, фейерверк, ветряной заряд и др.).
+
+Если игрок выпускает несколько снарядов подряд, плагин мгновенно и плавно перемещает его на снаряд, улетевший дальше всего от стартовой точки запуска.
+
+[HR][/HR]
+
+[SIZE=5][B]2. Основные возможности[/B][/SIZE]
+[LIST]
+[*][B]Посадка на самый дальний объект:[/B] постоянное удержание игрока на наиболее удаленном снаряде.
+[*][B]Умная защита от мерцания (Anti-Flicker):[/B] дистанция вычисляется относительно базовой точки запуска. Игрок плавно летит на первом снаряде, а при выстреле вперед пересаживается на новый только тогда, когда тот реально обгоняет текущий.
+[*][B]Полная защита от урона:[/B]
+[LIST]
+[*]Игрок не получает урон от столкновения со своим снарядом в полете.
+[*]Автоматический сброс дистанции падения при приземлении или ссаживании (без урона от падения).
+[/LIST]
+[*][B]Кросс-версионность (1.16.5 — 1.21+):[/B] безопасная работа на любых ядрах (Paper, Purpur, Spigot), поддержка Java 11/17/21+.
+[*][B]Автоопределение будущих снарядов:[/B] любые новые снаряды из будущих версий Minecraft (1.22+) обнаруживаются автоматически при старте сервера.
+[*][B]Оптимизация производительности (TPS):[/B] локализованный поиск вокруг игрока без сканирования всего мира.
+[/LIST]
+
+[HR][/HR]
+
+[SIZE=5][B]3. Команды и права[/B][/SIZE]
+
+[SIZE=4][U]Команды:[/U][/SIZE]
+[LIST]
+[*][ICODE]/asit <ник> <сущность>[/ICODE] — включить автоматическую посадку игрока на самый дальний объект указанного типа (или [ICODE]all[/ICODE] для любого).
+[I]Примеры:[/I]
+[ICODE]/asit Steve arrow[/ICODE]
+[ICODE]/asit Alex all[/ICODE]
+[*][ICODE]/asit <ник>[/ICODE] — удалить игрока из списка AlwaysSit, ссадить со снаряда и выключить режим.
+[I]Пример:[/I] [ICODE]/asit Steve[/ICODE]
+[/LIST]
+
+[B]Алиасы команды:[/B] [ICODE]/asit[/ICODE], [ICODE]/alwayssit[/ICODE]
+
+[SIZE=4][U]Права доступа (Permissions):[/U][/SIZE]
+[LIST]
+[*][ICODE]alwayssit.use[/ICODE] — доступ к использованию команды и подсказкам Tab (по умолчанию доступно операторам [ICODE]op[/ICODE]).
+[/LIST]
+
+[HR][/HR]
+
+[SIZE=5][B]4. Поддерживаемые сущности[/B][/SIZE]
+
+[SIZE=4][U]Специальные селекторы:[/U][/SIZE]
+[LIST]
+[*][ICODE]all[/ICODE] (также [ICODE]any[/ICODE], [ICODE]*[/ICODE]) — садиться на абсолютно любой запущенный объект.
+[/LIST]
+
+[SIZE=4][U]Снаряды:[/U][/SIZE]
+[LIST]
+[*][ICODE]arrow[/ICODE] — обычная стрела
+[*][ICODE]spectral_arrow[/ICODE] — спектральная стрела
+[*][ICODE]trident[/ICODE] — трезубец
+[*][ICODE]snowball[/ICODE] — снежок
+[*][ICODE]egg[/ICODE] — яйцо
+[*][ICODE]ender_pearl[/ICODE] ([I]алиасы: [ICODE]pearl[/ICODE], [ICODE]enderpearl[/ICODE][/I]) — эндер-жемчуг
+[*][ICODE]splash_potion[/ICODE] ([I]алиас: [ICODE]potion[/ICODE][/I]) — взрывное зелье
+[*][ICODE]experience_bottle[/ICODE] ([I]алиасы: [ICODE]exp_bottle[/ICODE], [ICODE]exp[/ICODE], [ICODE]experience[/ICODE][/I]) — пузырек с опытом
+[*][ICODE]firework_rocket[/ICODE] ([I]алиасы: [ICODE]firework[/ICODE], [ICODE]rocket[/ICODE][/I]) — ракета фейерверка
+[*][ICODE]fireball[/ICODE] — огненный шар
+[*][ICODE]small_fireball[/ICODE] — малый огненный шар
+[*][ICODE]dragon_fireball[/ICODE] — шар дракона
+[*][ICODE]wither_skull[/ICODE] — череп иссушителя
+[*][ICODE]shulker_bullet[/ICODE] — снаряд шалкера
+[*][ICODE]llama_spit[/ICODE] — плевок ламы
+[*][ICODE]fishing_bobber[/ICODE] ([I]алиасы: [ICODE]fishing_hook[/ICODE], [ICODE]bobber[/ICODE], [ICODE]hook[/ICODE][/I]) — поплавок удочки
+[*][ICODE]wind_charge[/ICODE] ([I]алиасы: [ICODE]windcharge[/ICODE], [ICODE]wind[/ICODE][/I]) [B](1.21+)[/B] — ветряной заряд игрока
+[*][ICODE]breeze_wind_charge[/ICODE] [B](1.21+)[/B] — ветряной заряд бриза
+[/LIST]
+
+[SIZE=4][U]Летающие мобы:[/U][/SIZE]
+[LIST]
+[*][ICODE]bat[/ICODE], [ICODE]blaze[/ICODE], [ICODE]ghast[/ICODE], [ICODE]phantom[/ICODE], [ICODE]bee[/ICODE], [ICODE]parrot[/ICODE], [ICODE]vex[/ICODE], [ICODE]ender_dragon[/ICODE] ([I]алиас: [ICODE]dragon[/ICODE][/I]), [ICODE]wither[/ICODE]
+[*][ICODE]allay[/ICODE] [B](1.19+)[/B] — эллей
+[*][ICODE]breeze[/ICODE] [B](1.21+)[/B] — бриз
+[/LIST]
+
+[HR][/HR]
+
+[SIZE=5][B]5. Конфигурация (config.yml)[/B][/SIZE]
+Файл конфигурации создается по пути: [ICODE]plugins/AlwaysSit/config.yml[/ICODE]
+
+[CODE title="config.yml"]
+settings:
+  # Интервал проверки в тиках (1 тик = 50 мс)
+  tick-interval: 1
+  # Отмена урона игроку от собственного снаряда в полете
+  prevent-self-damage: true
+  # Защита от урона при падении во время и после полета
+  prevent-fall-damage: true
+
+messages:
+  prefix: "&8[&6AlwaysSit&8] "
+  no-permission: "&cУ вас нет прав на использование этой команды!"
+  player-not-found: "&cИгрок &e{player} &cне найден или не в сети!"
+  usage:
+    - "&6==== AlwaysSit Помощь ===="
+    - "&e/asit <ник> <сущность> &7- включить посадку на самую дальнюю запущенную сущность"
+    - "&e/asit <ник> &7- удалить игрока из списка AlwaysSit"
+  enabled: "&aРежим AlwaysSit &2включен &aдля игрока &e{player}&a. Сущность: &b{entity}&a."
+  updated: "&aТип сущности для игрока &e{player} &aизменен на &b{entity}&a."
+  disabled: "&cИгрок &e{player} &cудален из списка AlwaysSit и больше не садится на сущности."
+  not-in-list: "&eИгрок &f{player} &eне находится в списке AlwaysSit."
+  target-notified-enabled: "&aДля вас &2включен &aрежим AlwaysSit на сущность: &b{entity}&a."
+  target-notified-disabled: "&cДля вас &4отключен &cрежим AlwaysSit."
+  invalid-entity: "&cСущность &e{entity} &cне найдена или не поддерживается. Используйте подсказки Tab."
+[/CODE]
+
+[HR][/HR]
+
+[SIZE=5][B]6. Установка и сборка[/B][/SIZE]
+
+[SIZE=4][U]Установка:[/U][/SIZE]
+[LIST=1]
+[*]Поместите файл [ICODE]AlwaysSit-1.0.0.jar[/ICODE] в папку [ICODE]plugins/[/ICODE] вашего сервера.
+[*]Перезапустите сервер.
+[/LIST]
+
+[SIZE=4][U]Сборка из исходников:[/U][/SIZE]
+[CODE title="bash"]mvn clean package[/CODE]
+Готовый файл создается в папке: [ICODE]target/AlwaysSit-1.0.0.jar[/ICODE]
