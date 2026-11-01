@@ -1,5 +1,5 @@
 name: AlwaysSit
-version: 1.0.0
+version: '${project.version}'
 main: me.nolover.alwayssit.AlwaysSit
 api-version: 1.16
 description: Automatically seats players on the furthest projectile they launch
