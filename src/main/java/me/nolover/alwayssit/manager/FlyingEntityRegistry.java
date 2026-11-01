@@ -49,11 +49,18 @@ public final class FlyingEntityRegistry {
         register("ender_dragon", EntityType.ENDER_DRAGON);
         register("wither", EntityType.WITHER);
 
-        // Entities introduced in Minecraft 1.19+ and 1.21+ (registered dynamically if present)
+        // Entities introduced in Minecraft 1.19+, 1.21+, and 2025/2026 Drops (up to 26.3)
         registerSafe("allay", "ALLAY");
         registerSafe("breeze", "BREEZE");
         registerSafe("wind_charge", "WIND_CHARGE");
         registerSafe("breeze_wind_charge", "BREEZE_WIND_CHARGE");
+        registerSafe("creaking", "CREAKING");
+        registerSafe("creaking_transient", "CREAKING_TRANSIENT");
+        registerSafe("ice_ball", "ICE_BALL");
+        registerSafe("frostbite", "FROSTBITE");
+        registerSafe("lingering_potion", "LINGERING_POTION");
+        registerSafe("eye_of_ender", "ENDER_SIGNAL");
+        registerSafe("eye_of_ender", "EYE_OF_ENDER");
 
         // Convenient aliases
         addAlias("pearl", EntityType.ENDER_PEARL);
@@ -71,6 +78,12 @@ public final class FlyingEntityRegistry {
 
         addAliasSafe("windcharge", "WIND_CHARGE");
         addAliasSafe("wind", "WIND_CHARGE");
+        addAliasSafe("breezewindcharge", "BREEZE_WIND_CHARGE");
+        addAliasSafe("iceball", "ICE_BALL");
+        addAliasSafe("ice", "ICE_BALL");
+        addAliasSafe("lingering", "LINGERING_POTION");
+        addAliasSafe("eye", "ENDER_SIGNAL");
+        addAliasSafe("eyeofender", "ENDER_SIGNAL");
 
         // Automatically discover any projectile or flying entities present in future/modded versions
         discoverAvailableEntities();
@@ -117,15 +130,27 @@ public final class FlyingEntityRegistry {
     }
 
     /**
-     * Inspects runtime EntityType to automatically detect any newer Projectile or Flying entities.
+     * Inspects runtime EntityType to automatically detect any newer Projectile or Flying entities
+     * introduced in Minecraft 1.21+, 2025/2026 Game Drops, and Minecraft 26.3+.
      */
     private static void discoverAvailableEntities() {
         for (EntityType type : EntityType.values()) {
             if (type == null) continue;
             try {
+                String name = type.name().toUpperCase(Locale.ROOT);
                 Class<?> clazz = type.getEntityClass();
+                boolean isEligible = false;
+
                 if (clazz != null && (Projectile.class.isAssignableFrom(clazz) || Flying.class.isAssignableFrom(clazz))) {
-                    String key = type.name().toLowerCase(Locale.ROOT);
+                    isEligible = true;
+                } else if (name.endsWith("_PROJECTILE") || name.endsWith("_BALL") || name.endsWith("_CHARGE")
+                        || name.endsWith("_BULLET") || name.endsWith("_SKULL") || name.endsWith("_ARROW")
+                        || name.endsWith("_SPIT") || name.endsWith("_BOMB") || name.contains("SIGNAL")) {
+                    isEligible = true;
+                }
+
+                if (isEligible) {
+                    String key = name.toLowerCase(Locale.ROOT);
                     if (!ENTITY_MAP.containsValue(type)) {
                         ENTITY_MAP.put(key, type);
                         if (!SUGGESTIONS.contains(key)) {

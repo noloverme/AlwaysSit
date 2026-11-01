@@ -12,14 +12,14 @@
 
 <!-- Typing SVG Animation -->
 <a href="https://github.com/noloverme/AlwaysSit">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&duration=2500&pause=1000&color=A78BFA&center=true&vCenter=true&width=580&lines=Seamless+Riding+on+Furthest+Projectiles;PaperMC+%2F+Purpur+%2F+Spigot+1.16.5+-+1.21%2B;Zero-Lag+Anti-Flicker+Flight+Trajectory;Fully+Created+by+AI+for+noloverme" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&duration=2500&pause=1000&color=A78BFA&center=true&vCenter=true&width=580&lines=Seamless+Riding+on+Furthest+Projectiles;PaperMC+%2F+Purpur+%2F+Spigot+1.16.5+-+26.3%2B;Zero-Lag+Anti-Flicker+Flight+Trajectory;Fully+Created+by+AI+for+noloverme" alt="Typing SVG" />
 </a>
 
 <br/><br/>
 
 <!-- Badges Row -->
 <a href="https://papermc.io">
-  <img src="https://img.shields.io/badge/PaperMC-1.16.5_--_1.21+-199EE0?style=for-the-badge&logo=curseforge&logoColor=white" alt="PaperMC" />
+  <img src="https://img.shields.io/badge/PaperMC-1.16.5_--_26.3+-199EE0?style=for-the-badge&logo=curseforge&logoColor=white" alt="PaperMC" />
 </a>
 &nbsp;
 <a href="https://www.oracle.com/java/">
@@ -68,7 +68,7 @@
 plugin:
   name: AlwaysSit
   version: 1.0.0
-  platforms: "PaperMC / Purpur / Spigot (1.16.5 — 1.21.x+)"
+  platforms: "PaperMC / Purpur / Spigot (1.16.5 — 26.3+)"
   runtimes: "Java 11, 17, 21+"
   core_feature: "Continuous automatic mounting on the furthest projectile"
   engine: "Hybrid Bukkit API + Multi-Version NMS Reflection + Vanilla /ride"
@@ -106,7 +106,7 @@ plugin:
     </tr>
     <tr>
       <td><b>🌐 Ultra Cross-Version</b></td>
-      <td>Работает на любых ядрах от <b>1.16.5 до 1.21+</b>. Новые ветряные заряды (<code>wind_charge</code>), бризы (<code>breeze</code>) и эллеи (<code>allay</code>) поддерживаются автоматически, а будущие снаряды (1.22+) обнаруживаются на лету.</td>
+      <td>Работает на любых ядрах от <b>1.16.5 до 26.3+</b>. Новые ветряные заряды (<code>wind_charge</code>), ледяные шары (<code>ice_ball</code>), бризы (<code>breeze</code>), фростбайты (<code>frostbite</code>) и крикинги (<code>creaking</code>) поддерживаются автоматически, а будущие снаряды обнаруживаются на лету.</td>
     </tr>
     <tr>
       <td><b>⚡ Zero TPS Degradation</b></td>
@@ -159,11 +159,11 @@ plugin:
     </tr>
     <tr>
       <td><b>❄️ Метательные</b></td>
-      <td><code>snowball</code>, <code>egg</code>, <code>ender_pearl</code> <i>(алиасы: pearl, enderpearl)</i></td>
+      <td><code>snowball</code>, <code>egg</code>, <code>ender_pearl</code> <i>(pearl, enderpearl)</i>, <code>eye_of_ender</code> <i>(eye)</i></td>
     </tr>
     <tr>
       <td><b>🧪 Зелья и опыт</b></td>
-      <td><code>splash_potion</code> <i>(potion)</i>, <code>experience_bottle</code> <i>(exp, exp_bottle)</i></td>
+      <td><code>splash_potion</code> <i>(potion)</i>, <code>lingering_potion</code> <i>(lingering)</i>, <code>experience_bottle</code> <i>(exp, exp_bottle)</i></td>
     </tr>
     <tr>
       <td><b>🎆 Пиротехника</b></td>
@@ -174,16 +174,16 @@ plugin:
       <td><code>fireball</code>, <code>small_fireball</code>, <code>dragon_fireball</code>, <code>wither_skull</code></td>
     </tr>
     <tr>
-      <td><b>💨 Новые 1.21+</b></td>
-      <td><code>wind_charge</code> <i>(windcharge, wind)</i>, <code>breeze_wind_charge</code></td>
+      <td><b>💨 Новые 1.21+ / 26.3</b></td>
+      <td><code>wind_charge</code> <i>(windcharge, wind)</i>, <code>breeze_wind_charge</code>, <code>ice_ball</code> <i>(ice, iceball)</i></td>
     </tr>
     <tr>
       <td><b>🎣 Прочие</b></td>
       <td><code>shulker_bullet</code>, <code>llama_spit</code>, <code>fishing_bobber</code> <i>(fishing_hook, bobber, hook)</i></td>
     </tr>
     <tr>
-      <td><b>🦇 Летающие мобы</b></td>
-      <td><code>bat</code>, <code>blaze</code>, <code>ghast</code>, <code>phantom</code>, <code>bee</code>, <code>parrot</code>, <code>vex</code>, <code>ender_dragon</code>, <code>wither</code>, <code>allay</code> (1.19+), <code>breeze</code> (1.21+)</td>
+      <td><b>🦇 Летающие и новые мобы</b></td>
+      <td><code>bat</code>, <code>blaze</code>, <code>ghast</code>, <code>phantom</code>, <code>bee</code>, <code>parrot</code>, <code>vex</code>, <code>ender_dragon</code>, <code>wither</code>, <code>allay</code> (1.19+), <code>breeze</code> (1.21+), <code>creaking</code>, <code>frostbite</code> (26.3)</td>
     </tr>
   </tbody>
 </table>

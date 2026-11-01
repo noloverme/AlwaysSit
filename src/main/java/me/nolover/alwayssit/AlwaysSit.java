@@ -28,7 +28,7 @@ public class AlwaysSit extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new ProjectileListener(this), this);
 
-        getLogger().info("AlwaysSit v" + getDescription().getVersion() + " успешно включен!");
+        getLogger().info("AlwaysSit v" + getDescription().getVersion() + " успешно включен на " + getServer().getVersion() + "!");
     }
 
     @Override

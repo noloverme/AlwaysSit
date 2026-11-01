@@ -72,6 +72,20 @@ public final class RidingHelper {
                     }
                 }
             }
+
+            // Third pass: single parameter startRiding(Entity) fallback
+            for (Method m : playerHandleClass.getMethods()) {
+                if (m.getParameterCount() == 1
+                        && (m.getName().equals("startRiding") || m.getName().equals("a"))
+                        && (m.getReturnType() == boolean.class || m.getReturnType() == void.class)) {
+                    Class<?> p0 = m.getParameterTypes()[0];
+                    if (!p0.isPrimitive() && p0 != String.class) {
+                        trySetAccessible(m);
+                        startRidingMethod = m;
+                        return;
+                    }
+                }
+            }
         } catch (Throwable t) {
             Bukkit.getLogger().log(Level.FINE, "NMS startRiding reflection could not be initialized", t);
         }
@@ -118,7 +132,9 @@ public final class RidingHelper {
             if (startRidingMethod != null && getPlayerHandleMethod != null && getEntityHandleMethod != null) {
                 Object playerHandle = getPlayerHandleMethod.invoke(player);
                 Object vehicleHandle = getEntityHandleMethod.invoke(vehicle);
-                Object res = startRidingMethod.invoke(playerHandle, vehicleHandle, true);
+                Object res = startRidingMethod.getParameterCount() == 2
+                        ? startRidingMethod.invoke(playerHandle, vehicleHandle, true)
+                        : startRidingMethod.invoke(playerHandle, vehicleHandle);
                 if (Boolean.TRUE.equals(res) || (player.getVehicle() != null && player.getVehicle().equals(vehicle))) {
                     return true;
                 }
